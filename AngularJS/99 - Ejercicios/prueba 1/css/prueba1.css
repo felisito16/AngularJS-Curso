@@ -1,0 +1,7 @@
+tbody>tr>td:last-child>img {
+    visibility: hidden;
+}
+
+tbody>tr:hover>td:last-child>img {
+    visibility: visible;
+}

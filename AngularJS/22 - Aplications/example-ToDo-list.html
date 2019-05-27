@@ -22,13 +22,24 @@
     <script>
         var app = angular.module('myApp', []);
         app.controller('todoCtrl', function ($scope) {
+
+            // Creamos una lista por primera vez al cargar la pagina
+            // la cual sera de un solo elemento. 
             $scope.todoList = [{ todoText: 'Clean House', done: false }];
 
+            // Añadimos a la lista anterior, cuando pulsemos el boton de 
+            // añadir tarea (submit), la tarea con el string del input,
+            // y de paso borramos el contenido del input.
             $scope.todoAdd = function () {
                 $scope.todoList.push({ todoText: $scope.todoInput, done: false });
                 $scope.todoInput = "";
             };
 
+            // Aqui borramos los checkboxes marcados, primero guardamos toda 
+            // la lista en una variable local, despues borramos la lista de todoList
+            // y luego con un for each comprobamos los checkboxes que no estan marcados,
+            // los que no estan marcados se añadiran de la variable oldList a la,
+            // original para que pueda sacarse.
             $scope.remove = function () {
                 var oldList = $scope.todoList;
                 $scope.todoList = [];
