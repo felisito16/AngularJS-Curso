@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Probando</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h2>Numero de registros: <span>2</span></h2>
+    <button>Clickeame</button>
+
+</body>
+
+<script>
+    $("button").click(function () {
+        var spanOld = $("span").text()
+        spanOld = parseInt(spanOld) + 1
+        $("span").text(spanOld)
+    })
+</script>
+
+</html>
