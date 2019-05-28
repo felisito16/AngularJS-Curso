@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Lista de tareas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="./css/tareas.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <div id="divContenedor">
+        <div id="divEditar">
+            <div class="divContenidoEditar">
+                <form>
+                    <!-- Autor -->
+                    <div class="form-group">
+                        <label>Autor</label>
+                        <input ng-model="valueAutor" ng-disabled="noEditable" type="text"
+                            class="inputAutor form-control" placeholder="Nombre del autor">
+                    </div>
+                    <!-- Descripcion -->
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input ng-model="valueDesc" ng-disabled="noEditable" type="text"
+                            class="inputDescripcion form-control" placeholder="Descripción de la tarea">
+                    </div>
+                    <label ng-model="valLabelFecha">Fecha de la tarea</label>
+                    <div class="divFecha form-group">
+                        <!-- Fecha -->
+                        <input ng-model="valueFecha" ng-disabled="noEditable" type="date"
+                            class="inputFecha form-control" placeholder="dd/mm/aaaa">
+                        <div class="divChkBotones">
+                            <!-- Realizado / Check -->
+                            <input ng-model="valueCheck" ng-disabled="noEditable" type="checkbox"
+                                class="chkRealizadoEditar form-check-input">
+                            <label class="form-check-label">Realizada</label>
+                            <button ng-click="Save()" type="button" ng-disabled="noEditable"
+                                class="buttonGuardar btn btn-success">Guardar</button>
+                            <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
+                                class="btn btn-outline-secondary">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="divListaTareas">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tarea in listaTareas" 
+                    ng-class="setColorRow($index, 'table-success', 'table-danger')">
+                        <td>{{ tarea.autor }}</td>
+                        <td>{{ tarea.desc }}</td>
+                        <td>{{ tarea.fecha }}</td>
+                        <td ng-if="tarea.check">Realizada</td>
+                        <td ng-if="!tarea.check">Incompleta</td>
+                        <td>
+                            <a ng-click="Editar($index)" href="" title="Editar tarea"><img src="./img/edit.png"
+                                    width="30" /></a>
+                            <a ng-click="Delete($index)" href="" title="Borrar tarea"><img src="./img/delete.png"
+                                    width="30" /></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button ng-click="Add()" type="button" class="buttonAdd btn btn-info">Añadir</button>
+        </div>
+    </div>
+
+    <!-- AngularJS - Funcionalidad -->
+    <script src="./js/appAngularJS.js"></script>
+
+</body>
+
+</html>

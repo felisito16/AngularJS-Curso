@@ -1,0 +1,51 @@
+/* Estilos de los divs Padres */
+#divContenedor{
+    margin: 3% 3% 0 3%;
+}
+#divEditar{
+    width: 45%;
+    float: left;
+    border-radius: 20px;
+    border: 2px solid #000000;
+}
+#divListaTareas{
+    float: right;
+    width: 53%;
+    border-radius: 0px 0px 20px 20px;
+    border: 2px solid #000000;
+    padding-bottom: 15px;
+}
+
+.divContenidoEditar {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+/* Estilos de los inputs */
+.inputAutor { width: 50%; }
+.inputDescripcion { width: 80%; }
+.inputFecha { width: 180px; }
+
+.divFecha { display: -webkit-box; }
+.divChkBotones { margin-left: 50px; }
+.chkRealizadoEditar { margin-top: 0.77%; }
+.buttonGuardar { margin-left: 60px; }
+
+.buttonAdd {    
+    vertical-align: top;
+    float: right;
+    margin-right: 20px;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+/* Trucos de veterano */
+tbody > tr > td:last-child > a {
+    visibility: hidden;
+}
+
+tbody > tr:hover > td:last-child > a {
+    visibility: visible;
+}

@@ -1,6 +1,7 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function ($scope) {
 
+
     $scope.myResults = [{
         "name": "John",
         "status": "Approved",
@@ -18,7 +19,8 @@ app.controller('myCtrl', function ($scope) {
     }];
 
     var aprobados = 0
-    angular.forEach($scope.myResults, function (value, key) {
+    angular.forEach($scope.myResults, 
+        function (value, key) {
 
         if (value.status == "Approved") {
             aprobados = aprobados + 1;
@@ -37,7 +39,8 @@ app.controller('myCtrl', function ($scope) {
         })
         $scope.spanini = $scope.myResults.length;
 
-        angular.forEach($scope.myResults, function (value, key) {
+        angular.forEach($scope.myResults, 
+            function (value, key) {
             if (value.status == "Approved") {
                 aprobados = aprobados + 1;
             }
@@ -54,7 +57,8 @@ app.controller('myCtrl', function ($scope) {
         $scope.approveds = 0
         $scope.myResults.splice(index, 1)
         $scope.spanini = $scope.myResults.length;
-        angular.forEach($scope.myResults, function (value, key) {
+        angular.forEach($scope.myResults, 
+            function (value, key) {
             if (value.status == "Approved") {
                 aprobados = aprobados + 1;
             }
