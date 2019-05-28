@@ -76,6 +76,7 @@ app.controller('myCtrl', function ($scope, $filter) {
             $("label:eq(2)").text("Fecha de la tarea")
 
         } else {
+
             // Editando una tarea
 
             var i = $scope.indiceEditar
@@ -94,8 +95,8 @@ app.controller('myCtrl', function ($scope, $filter) {
             $scope.listaTareas[i].check = $scope.valueCheck
 
             $scope.valueFechaGG = undefined
+            
             $("label:eq(2)").text("Fecha de la tarea")
-
         }
 
         // Volvemos a deshabilitarlo
