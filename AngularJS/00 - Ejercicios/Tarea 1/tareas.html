@@ -70,8 +70,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="tarea in listaTareas" 
-                    ng-class="setColorRow($index, 'table-success', 'table-danger')">
+                    <tr ng-repeat="tarea in listaTareas"
+                        ng-class="setColorRow($index, 'table-success', 'table-danger')">
                         <td>{{ tarea.autor }}</td>
                         <td>{{ tarea.desc }}</td>
                         <td>{{ tarea.fecha }}</td>
@@ -86,7 +86,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button ng-click="Add()" type="button" class="buttonAdd btn btn-info">Añadir</button>
+            <button ng-disabled="apagarBoton" ng-click="Add()" type="button" class="buttonAdd btn btn-info">Añadir</button>
         </div>
     </div>
 

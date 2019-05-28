@@ -19,7 +19,7 @@ app.controller('myCtrl', function ($scope, $filter) {
     // inhabilitada
     $scope.modo;
     $scope.noEditable = true
-    const labelNoAny = "Fecha de la tarea"
+    $scope.apagarBoton = false
 
     $scope.Add = function () {
         $scope.noEditable = false
@@ -40,10 +40,12 @@ app.controller('myCtrl', function ($scope, $filter) {
         $scope.valueCheck = ""
         $("label:eq(2)").text("Fecha de la tarea")
         $("td a").show()
+        $scope.apagarBoton = false
     }
     $scope.Editar = function (index) {
-        $scope.noEditable = false
+        $scope.noEditable = false;
         $scope.modo = "editar";
+        $scope.apagarBoton = true
 
         // Guardamos la fila a la que hacemos referencia
         // al editar
@@ -95,7 +97,7 @@ app.controller('myCtrl', function ($scope, $filter) {
             $scope.listaTareas[i].check = $scope.valueCheck
 
             $scope.valueFechaGG = undefined
-            
+
             $("label:eq(2)").text("Fecha de la tarea")
         }
 
@@ -107,6 +109,7 @@ app.controller('myCtrl', function ($scope, $filter) {
         $scope.valueCheck = ""
         $("td a").show()
         $("label:eq(2)").text("Fecha de la tarea")
+        $scope.apagarBoton = false
 
         /* angular.forEach($scope.listaTareas, function (key, index) {
             console.log(key.autor)
