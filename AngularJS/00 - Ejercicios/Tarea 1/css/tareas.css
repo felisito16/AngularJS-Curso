@@ -1,3 +1,9 @@
+html {
+    background: url('../img/back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
 /* Estilos de los divs Padres */
 #divContenedor{
     margin: 3% 3% 0 3%;
@@ -7,6 +13,8 @@
     float: left;
     border-radius: 20px;
     border: 2px solid #000000;
+    background-color: white;
+    background: url('../img/backEditar.png') no-repeat center center fixed;
 }
 #divListaTareas{
     float: right;
@@ -14,6 +22,7 @@
     border-radius: 0px 0px 20px 20px;
     border: 2px solid #000000;
     padding-bottom: 15px;
+    background-color: white;
 }
 
 .divContenidoEditar {
@@ -49,11 +58,44 @@
     vertical-align: middle;
 }
 
-/* Trucos */
-tbody > tr > td:last-child > a {
-    visibility: hidden;
-}
+/* El responsive bb */
+@media only screen and (max-width: 920px) {
+    #divListaTareas {
+        margin-top: 50px;
+        width: 100%;
+    }
+    #divEditar{
+        width: 100%;
+    }
+    /* #thFecha, .tdFecha {
+        display: none;
 
-tbody > tr:hover > td:last-child > a {
-    visibility: visible;
+    } */
+  }
+@media only screen and (max-width: 560px) {
+     #thFecha, .tdFecha {
+        display: none;
+    } 
+  }
+@media only screen and (max-width: 700px) {
+    /* Trucos */
+    tbody > tr > td:last-child > a {
+        visibility: visible;
+    }
 }
+@media only screen and (min-width: 921px) {
+    /* Trucos */
+    tbody > tr > td:last-child > a {
+        visibility: hidden;
+    }
+
+    tbody > tr:hover > td:last-child > a {
+        visibility: visible;
+    }
+}
+/*  
+@media only screen and (max-width: 430px) {
+   .divBotones {
+        width: 100%;
+   }
+} */

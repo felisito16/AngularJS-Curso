@@ -66,7 +66,7 @@
                     <tr>
                         <th scope="col">Autor</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Fecha</th>
+                        <th id="thFecha" scope="col">Fecha</th>
                         <th scope="col">Estado</th>
                         <th scope="col"></th>
                     </tr>
@@ -76,7 +76,7 @@
                         ng-class="setColorRow($index, 'table-success', 'table-danger')">
                         <td>{{ tarea.autor }}</td>
                         <td>{{ tarea.desc }}</td>
-                        <td>{{ tarea.fecha }}</td>
+                        <td class="tdFecha">{{ tarea.fecha }}</td>
                         <td ng-if="tarea.check">Realizada</td>
                         <td ng-if="!tarea.check">Incompleta</td>
                         <td>
