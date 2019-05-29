@@ -15,9 +15,9 @@ app.controller('myCtrl', function ($scope, $filter) {
     }];
 
 
+    $scope.modo;
     // Por defecto, la vista de edicion
     // inhabilitada
-    $scope.modo;
     $scope.noEditable = true
     $scope.apagarBoton = false
 
@@ -62,6 +62,7 @@ app.controller('myCtrl', function ($scope, $filter) {
         $("td a").hide()
     }
     $scope.Save = function () {
+
         // Dependiendo de si entramos en la vista de edicion
         // en modo Editar o Crear nuvea tarea
         // El guardar funcionara de una manera u otra
@@ -122,6 +123,7 @@ app.controller('myCtrl', function ($scope, $filter) {
                 $("tbody tr:eq(" + index + ")").css("background", "yellow")
             }
         }) */
+
     }
 
     $scope.setColorRow = function (index, classYes, classNo) {
@@ -131,5 +133,6 @@ app.controller('myCtrl', function ($scope, $filter) {
             return classNo
         }
     }
+
 
 });
