@@ -1,5 +1,5 @@
 html {
-    background: url('../img/back.jpg') no-repeat center center fixed;
+    background: url('../img/back2v2.jpg') no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
     }
@@ -14,7 +14,6 @@ html {
     border-radius: 20px;
     border: 2px solid #000000;
     background-color: white;
-    background: url('../img/backEditar.png') no-repeat center center fixed;
 }
 #divListaTareas{
     float: right;
@@ -22,7 +21,7 @@ html {
     border-radius: 0px 0px 20px 20px;
     border: 2px solid #000000;
     padding-bottom: 15px;
-    background-color: white;
+    background-color: #343a40;
 }
 
 .divContenidoEditar {
@@ -93,9 +92,3 @@ html {
         visibility: visible;
     }
 }
-/*  
-@media only screen and (max-width: 430px) {
-   .divBotones {
-        width: 100%;
-   }
-} */
