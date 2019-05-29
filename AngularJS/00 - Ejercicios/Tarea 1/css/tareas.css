@@ -26,10 +26,18 @@
 .inputDescripcion { width: 80%; }
 .inputFecha { width: 180px; }
 
+
 .divFecha { display: -webkit-box; }
-.divChkBotones { margin-left: 50px; }
+.divChk { margin-left: 50px; }
+.divBotonesEditar { 
+    display: inline-block;
+    margin: auto;
+    float: right;
+    margin-right: 5%;
+    padding-bottom: 3%;
+}
 .chkRealizadoEditar { margin-top: 0.77%; }
-.buttonGuardar { margin-left: 60px; }
+.buttonGuardar { margin: auto; }
 
 .buttonAdd {    
     vertical-align: top;
@@ -41,7 +49,7 @@
     vertical-align: middle;
 }
 
-/* Trucos de veterano */
+/* Trucos */
 tbody > tr > td:last-child > a {
     visibility: hidden;
 }

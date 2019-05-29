@@ -44,16 +44,18 @@
                         <!-- Fecha -->
                         <input ng-model="valueFecha" ng-disabled="noEditable" type="date"
                             class="inputFecha form-control" placeholder="dd/mm/aaaa">
-                        <div class="divChkBotones">
+                        <div class="divChk">
                             <!-- Realizado / Check -->
                             <input ng-model="valueCheck" ng-disabled="noEditable" type="checkbox"
                                 class="chkRealizadoEditar form-check-input">
                             <label class="form-check-label">Realizada</label>
-                            <button ng-click="Save()" type="button" ng-disabled="noEditable"
-                                class="buttonGuardar btn btn-success">Guardar</button>
-                            <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
-                                class="btn btn-outline-secondary">Cancelar</button>
                         </div>
+                    </div>
+                    <div class="divBotonesEditar">
+                        <button ng-click="Save()" type="button" ng-disabled="noEditable"
+                            class="buttonGuardar btn btn-success">Guardar</button>
+                        <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
+                            class="btn btn-outline-secondary">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -86,7 +88,8 @@
                     </tr>
                 </tbody>
             </table>
-            <button ng-disabled="apagarBoton" ng-click="Add()" type="button" class="buttonAdd btn btn-info">Añadir</button>
+            <button ng-disabled="apagarBoton" ng-click="Add()" type="button"
+                class="buttonAdd btn btn-info">Añadir</button>
         </div>
     </div>
 
