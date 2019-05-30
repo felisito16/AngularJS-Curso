@@ -18,12 +18,13 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
     <link rel="stylesheet" href="./css/tareas.css">
 </head>
 
 <!-- Cargamos la app y el controlador -->
 
-<body ng-app="myApp" ng-controller="myCtrl">
+<body ng-app="myApp" ng-controller="controller">
 
     <div id="divContenedor">
         <!-- div de la vista de Edicion de tareas -->
@@ -56,7 +57,7 @@
                     </div>
                     <!-- Botones de Guardar y Cancelar -->
                     <div class="divBotonesEditar">
-                        <button ng-click="Save()" type="button" ng-disabled="noEditable"
+                        <button ng-click="save()" type="button" ng-disabled="noEditable"
                             class="buttonGuardar btn btn-success">Guardar</button>
                         <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
                             class="btn btn-outline-secondary">Cancelar</button>
@@ -81,16 +82,16 @@
                     ademas con ng-class definimos la clase que tendra cada tr para 
                     definir su background-color en funcion de si el campo check(estado) 
                     esta Realizado o no (con true or false)-->
-                    <tr ng-repeat="tarea in listaTareas"
+                    <tr ng-repeat="tarea in listaTareasLocal"
                         ng-class="setColorRow($index, 'table-success', 'table-danger')">
-                        <td>{{ tarea.autor }}</td>
-                        <td>{{ tarea.desc }}</td>
-                        <td class="tdFecha">{{ tarea.fecha }}</td>
+                        <td ng-if="tarea.autor!=undefined">{{ tarea.autor }}</td>
+                        <td ng-if="tarea.desc!=undefined">{{ tarea.desc }}</td>
+                        <td class="tdFecha" ng-if="tarea.fecha!=undefined">{{ tarea.fecha }}</td>
                         <!-- Si el campo check esta en true, muestra "Realizada" y si no
                         "Incompleta" -->
-                        <td ng-if="tarea.check">Realizada</td>
-                        <td ng-if="!tarea.check">Incompleta</td>
-                        <td>
+                        <td ng-if="tarea.check!=undefined && tarea.check==true">Realizada</td>
+                        <td ng-if="tarea.check!=undefined && tarea.check==false">Incompleta</td>
+                        <td ng-if="tarea.check!=undefined">
                             <!-- Botones de Editar y Borrar -->
                             <a ng-click="Editar($index)" href="" title="Editar tarea"><img src="./img/edit2.png"
                                     width="30" /></a>
