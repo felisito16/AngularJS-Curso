@@ -1,0 +1,107 @@
+html {
+    background: url('../img/back2v2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+/* Estilos de los divs Padres */
+#divContenedor{
+    margin: 1% 1% 0 1%;
+}
+#divEditar {
+    float: left;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    background-color: moccasin;
+}
+#divListaTareas {
+    float: right;
+    border-radius: 0px 0px 20px 20px;
+    border: 2px solid #000000;
+    padding-bottom: 15px;
+    background-color: #343a40;
+}
+
+.divContenidoEditar {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+/* Estilos de los inputs */
+.inputAutor { width: 50%; }
+.inputDescripcion { width: 80%; }
+.inputFecha { width: 180px; }
+
+
+.divFecha { display: -webkit-box; }
+.divChk { margin-left: 10%; }
+.divBotonesEditar { 
+    display: inline-block;
+    margin: auto;
+    float: right;
+    margin-right: 5%;
+    padding-bottom: 3%;
+}
+.chkRealizadoEditar { margin-top: 0.77%; }
+.buttonGuardar { margin: auto; }
+
+.buttonAdd {    
+    vertical-align: top;
+    float: right;
+    margin-right: 20px;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.col-lg-7 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* El responsive bb */
+ @media only screen and (max-width: 920px) {
+    /*#divListaTareas {
+        margin-top: 50px;
+        width: 100%;
+    }
+    #divEditar{
+        width: 100%;
+    } 
+    #thFecha, .tdFecha {
+        display: none;
+    }
+    #thEstado, .tdEstado {
+        display: none;
+    }
+  }
+*/
+ @media only screen and (max-width: 560px) {
+    #thFecha, .tdFecha {
+        display: none;
+    }
+    #thEstado, .tdEstado {
+        display: none;
+    }
+    html {
+        background: url('../img/back2v2.jpg') no-repeat center center fixed;
+    }
+  }
+
+@media only screen and (max-width: 700px) {
+    /* Trucos */
+    tbody > tr > td:last-child > a {
+        visibility: visible;
+    }
+}
+@media only screen and (min-width: 921px) {
+    /* Trucos */
+    tbody > tr > td:last-child > a {
+        visibility: hidden;
+    }
+
+    tbody > tr:hover > td:last-child > a {
+        visibility: visible;
+    }
+}
