@@ -1,6 +1,8 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function ($scope, $filter) {
 
+    /* Variable que guarda la lista de tareas que 
+    visualizaremos en la tabla */
     $scope.listaTareas = [{
         "autor": "John",
         "desc": "Limpieza del cuarto de baño",
@@ -14,26 +16,29 @@ app.controller('myCtrl', function ($scope, $filter) {
         "check": true
     }];
 
-
-    $scope.modo;
-    // Por defecto, la vista de edicion
-    // inhabilitada
+    /* Por defecto, la vista de edicion
+    inhabilitada y boton de Añadir habilitado*/
     $scope.noEditable = true
     $scope.apagarBoton = false
 
     $scope.Add = function () {
+        /* Activamos los inputs y marcamos que el modo
+        de visualizacion sera del modo "crear" */
         $scope.noEditable = false
         $scope.modo = "crear";
     }
 
     $scope.Delete = function (index) {
+        /* Hacemos un slice con el index
+        actual seleccionado de la tarea */
         $scope.listaTareas.splice(index, 1)
     }
 
     $scope.Cancelar = function () {
         // Volvemos a deshabilitarlo
         $scope.noEditable = true
-        // Borramos los campos
+        /* Borramos los campos y habilitamos 
+        el boton de nuevo */
         $scope.valueAutor = ""
         $scope.valueDesc = ""
         $scope.valueFecha = ""
@@ -43,6 +48,9 @@ app.controller('myCtrl', function ($scope, $filter) {
         $scope.apagarBoton = false
     }
     $scope.Editar = function (index) {
+        /* Activamos los inputs de edicion, seleccionamos
+        el modo de editar y deshabilitamos el boton de Añadir
+        */
         $scope.noEditable = false;
         $scope.modo = "editar";
         $scope.apagarBoton = true
@@ -66,10 +74,14 @@ app.controller('myCtrl', function ($scope, $filter) {
         // Dependiendo de si entramos en la vista de edicion
         // en modo Editar o Crear nuvea tarea
         // El guardar funcionara de una manera u otra
+
         if ($scope.modo == "crear") {
             // Creando nueva tarea
 
+            /* Formateamos la fecha del input de edicion y la guardamos
+            en otra variable a parte */
             $scope.valueFechaGG = $filter('date')($scope.valueFecha, "dd/MM/yyyy");
+            /* Hacemos push en la variable de la lista de las tareas */
             $scope.listaTareas.push({
                 "autor": $scope.valueAutor,
                 "desc": $scope.valueDesc,
@@ -79,12 +91,14 @@ app.controller('myCtrl', function ($scope, $filter) {
             $("label:eq(2)").text("Fecha de la tarea")
 
         } else {
-
             // Editando una tarea
 
+            /* guardamos en "i" el indice de la tarea que estamos editando
+             y volvemos a formatear la fecha nueva*/
             var i = $scope.indiceEditar
             $scope.valueFechaGG = $filter('date')($scope.valueFecha, "dd/MM/yyyy");
 
+            /* Asignamos los nuevos valores a la tarea que estamos editando */
             $scope.listaTareas[i].autor = $scope.valueAutor
             $scope.listaTareas[i].desc = $scope.valueDesc
             if ($scope.valueFecha == undefined
@@ -98,11 +112,12 @@ app.controller('myCtrl', function ($scope, $filter) {
             $scope.listaTareas[i].check = $scope.valueCheck
 
             $scope.valueFechaGG = undefined
-
             $("label:eq(2)").text("Fecha de la tarea")
         }
 
-        // Volvemos a deshabilitarlo
+        /* Volvemos a deshabilitar los inputs y los vaciamos, y
+        volvemos a activar el boton de Añadir */
+
         $scope.noEditable = true
         $scope.valueAutor = ""
         $scope.valueDesc = ""
@@ -112,27 +127,17 @@ app.controller('myCtrl', function ($scope, $filter) {
         $("label:eq(2)").text("Fecha de la tarea")
         $scope.apagarBoton = false
 
-        /* angular.forEach($scope.listaTareas, function (key, index) {
-            console.log(key.autor)
-            console.log(key.check)
-            console.log(index)
-            if (key.check == true) {
-                $("tbody tr:eq(" + index + ")").css("background", "green")
-                console.log(index)
-            } else {
-                $("tbody tr:eq(" + index + ")").css("background", "yellow")
-            }
-        }) */
-
     }
 
     $scope.setColorRow = function (index, classYes, classNo) {
+        /* Si la tarea que esta mostrando la tabla, su campo check
+        esta en true (Realizada) se mostrara en verde su fondo, sino
+        en color rojo */
         if ($scope.listaTareas[index].check == true) {
             return classYes
         } else {
             return classNo
         }
     }
-
 
 });

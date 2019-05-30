@@ -13,7 +13,7 @@ html {
     float: left;
     border-radius: 20px;
     border: 2px solid #000000;
-    background-color: white;
+    background-color: moccasin;
 }
 #divListaTareas{
     float: right;
@@ -36,7 +36,7 @@ html {
 
 
 .divFecha { display: -webkit-box; }
-.divChk { margin-left: 50px; }
+.divChk { margin-left: 10%; }
 .divBotonesEditar { 
     display: inline-block;
     margin: auto;

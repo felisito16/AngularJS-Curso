@@ -21,9 +21,12 @@
     <link rel="stylesheet" href="./css/tareas.css">
 </head>
 
+<!-- Cargamos la app y el controlador -->
+
 <body ng-app="myApp" ng-controller="myCtrl">
 
     <div id="divContenedor">
+        <!-- div de la vista de Edicion de tareas -->
         <div id="divEditar">
             <div class="divContenidoEditar">
                 <form>
@@ -51,6 +54,7 @@
                             <label class="form-check-label">Realizada</label>
                         </div>
                     </div>
+                    <!-- Botones de Guardar y Cancelar -->
                     <div class="divBotonesEditar">
                         <button ng-click="Save()" type="button" ng-disabled="noEditable"
                             class="buttonGuardar btn btn-success">Guardar</button>
@@ -60,26 +64,34 @@
                 </form>
             </div>
         </div>
+        <!-- div de la tabla con la lista de tareas -->
         <div id="divListaTareas">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Autor</th>
-                        <th scope="col">Descripcion</th>
-                        <th id="thFecha" scope="col">Fecha</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col"></th>
+                        <th scope="col">Autor</th> <!-- Autor -->
+                        <th scope="col">Descripcion</th> <!-- Descripcion de la tarea -->
+                        <th id="thFecha" scope="col">Fecha</th> <!-- Fecha de comienzo -->
+                        <th scope="col">Estado</th> <!-- Estado de la tarea actual -->
+                        <th scope="col"></th> <!-- (Columna de las Acciones de Editar y Borrar) -->
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Cargar la variable $scope.listaTareas con un forEach (ng-repeat) 
+                    ademas con ng-class definimos la clase que tendra cada tr para 
+                    definir su background-color en funcion de si el campo check(estado) 
+                    esta Realizado o no (con true or false)-->
                     <tr ng-repeat="tarea in listaTareas"
                         ng-class="setColorRow($index, 'table-success', 'table-danger')">
                         <td>{{ tarea.autor }}</td>
                         <td>{{ tarea.desc }}</td>
                         <td class="tdFecha">{{ tarea.fecha }}</td>
+                        <!-- Si el campo check esta en true, muestra "Realizada" y si no
+                        "Incompleta" -->
                         <td ng-if="tarea.check">Realizada</td>
                         <td ng-if="!tarea.check">Incompleta</td>
                         <td>
+                            <!-- Botones de Editar y Borrar -->
                             <a ng-click="Editar($index)" href="" title="Editar tarea"><img src="./img/edit2.png"
                                     width="30" /></a>
                             <a ng-click="Delete($index)" href="" title="Borrar tarea"><img src="./img/delete2.png"
@@ -88,6 +100,7 @@
                     </tr>
                 </tbody>
             </table>
+            <!-- Boton de añadir tarea -->
             <button ng-disabled="apagarBoton" ng-click="Add()" type="button"
                 class="buttonAdd btn btn-info">Añadir</button>
         </div>
