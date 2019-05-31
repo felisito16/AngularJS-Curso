@@ -73,7 +73,7 @@
                         <th scope="col">Autor</th> <!-- Autor -->
                         <th scope="col">Descripcion</th> <!-- Descripcion de la tarea -->
                         <th id="thFecha" scope="col">Fecha</th> <!-- Fecha de comienzo -->
-                        <th scope="col">Estado</th> <!-- Estado de la tarea actual -->
+                        <th id="thEstado" scope="col">Estado</th> <!-- Estado de la tarea actual -->
                         <th scope="col"></th> <!-- (Columna de las Acciones de Editar y Borrar) -->
                     </tr>
                 </thead>
@@ -85,12 +85,13 @@
                     <tr ng-repeat="tarea in listaTareasLocal"
                         ng-class="setColorRow($index, 'table-success', 'table-danger')">
                         <td ng-if="tarea.autor!=undefined">{{ tarea.autor }}</td>
-                        <td ng-if="tarea.desc!=undefined">{{ tarea.desc }}</td>
+                        <td ng-show="tarea.desc!=undefined">{{ tarea.desc }}</td>
+                        <td ng-show="tarea.desc==undefined" style="text-align: center"> - </td>
                         <td class="tdFecha" ng-if="tarea.fecha!=undefined">{{ tarea.fecha }}</td>
                         <!-- Si el campo check esta en true, muestra "Realizada" y si no
                         "Incompleta" -->
-                        <td ng-if="tarea.check!=undefined && tarea.check==true">Realizada</td>
-                        <td ng-if="tarea.check!=undefined && tarea.check==false">Incompleta</td>
+                        <td ng-if="tarea.check!=undefined && tarea.check==true" class="tdEstado">Realizada</td>
+                        <td ng-if="tarea.check!=undefined && tarea.check==false" class="tdEstado">Incompleta</td>
                         <td ng-if="tarea.check!=undefined">
                             <!-- Botones de Editar y Borrar -->
                             <a ng-click="Editar($index)" href="" title="Editar tarea"><img src="./img/edit2.png"
