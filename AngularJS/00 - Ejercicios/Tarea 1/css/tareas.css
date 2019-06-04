@@ -40,7 +40,6 @@ html {
 .divBotonesEditar { 
     display: inline-block;
     margin: auto;
-    float: right;
     margin-right: 5%;
     padding-bottom: 3%;
 }
