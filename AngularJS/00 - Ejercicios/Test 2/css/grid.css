@@ -1,0 +1,65 @@
+/* Fonts, options divs */
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.row {
+    justify-content: center;
+}
+
+/* Bakcgorund image body */
+
+body {
+    background: url("../img/backgroundImage.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Titulo header */
+
+#titleLogin-xs, #titleLogin-lg {
+    font-family: 'Poppins', sans-serif;
+}
+
+#titleLogin-lg {
+    display: none
+}
+
+/* Load */
+#loadGif {
+    width: 36px;
+}
+
+/* MediaQuery */
+
+/* Mayor que */
+
+@media (min-width:426px) {
+    #titleLogin-xs {
+        display: none;
+    }
+    #titleLogin-lg {
+        display: block;
+    }
+}
+
+@media (min-width:1020px) {
+    #buttonLogin, #buttonReset {
+        width: 49%;
+    }
+    #inputUser, #inputPass {
+        width: 60%;
+        margin: auto;
+    }
+}
+
+/* Menor que */
+
+@media (max-width:1020px) {
+    #divButtons {
+        display: grid;
+    }
+    #buttonLogin {
+        margin-bottom: 0.5rem!important;
+    }
+}

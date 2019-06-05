@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/grid.css">
+    <script src="js/grid.js"></script>
+    <title>MDC - Matriculacion de ciclos</title>
+</head>
+
+<body>
+    <h1 class="mt-3 mb-4 text-center" id="titleLogin-xs">MDC</h1>
+    <h1 class="mt-3 mb-4 text-center" id="titleLogin-lg">Matriculacion de ciclos</h1>
+
+    <div ng-app="angular" ng-controller="controller" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 border border-success py-2">
+                <div>
+                    <p class="mb-2 text-center">Usuario</p>
+                    <input ng-disabled="estadoLoad" type="text" id="inputUser" class="form-control">
+                    <p class="mb-2 mt-4 text-center">Contraseña</p>
+                    <input ng-disabled="estadoLoad" type="password" id="inputPass" class="form-control">
+                </div>
+                <div class="col-xs-12 mt-4 text-center" id="divButtons">
+                    <button ng-click="onLoad()" type="button" class="btn btn-success" id="buttonLogin">
+                        <img ng-if="estadoLoad == true" id="loadGif" src="./img/load2.gif" width="40px" alt="">
+                        <span ng-if="estadoLoad == false">
+                            LOGIN
+                        </span>
+                    </button>
+                </div>
+                <div class="col-xs-12 mt-2 text-center" id="divButtons">
+                    <button type="button" class="btn btn-outline-dark" id="buttonReset">
+                        RESET
+                    </button>
+                </div>
+
+                <div class="row">
+                    <a style="text-decoration: none" href="">
+                        <p class="mt-4" style="color:darkgreen">¿Olvidaste la contraseña?</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

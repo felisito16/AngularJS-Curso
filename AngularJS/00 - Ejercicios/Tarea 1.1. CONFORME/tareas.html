@@ -27,82 +27,89 @@
 
     <div id="divContenedor">
         <!-- div de la vista de Edicion de tareas -->
-        <div class="col-lg-5" id="divEditar">
-            <div class="divContenidoEditar">
-                <form>
-                    <!-- Autor -->
-                    <div class="form-group">
-                        <label>Autor</label>
-                        <input ng-model="valueAutor" ng-disabled="noEditable" type="text"
-                            class="inputAutor form-control" placeholder="Nombre del autor">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-10" id="divEditar">
+                    <div class="divContenidoEditar">
+                        <form>
+                            <!-- Autor -->
+                            <div class="form-group">
+                                <label>Autor</label>
+                                <input ng-model="valueAutor" ng-disabled="noEditable" type="text"
+                                    class="inputAutor form-control" placeholder="Nombre del autor">
+                            </div>
+                            <!-- Descripcion -->
+                            <div class="form-group">
+                                <label>Descripción</label>
+                                <input ng-model="valueDesc" ng-disabled="noEditable" type="text"
+                                    class="inputDescripcion form-control" placeholder="Descripción de la tarea">
+                            </div>
+                            <label ng-model="valLabelFecha">Fecha de la tarea</label>
+                            <div class="divFecha form-group">
+                                <!-- Fecha -->
+                                <input ng-model="valueFecha" ng-disabled="noEditable" type="date"
+                                    class="inputFecha form-control" placeholder="dd/mm/aaaa">
+                                <div class="divChk">
+                                    <!-- Realizado / Check -->
+                                    <input ng-model="valueCheck" ng-disabled="noEditable" type="checkbox"
+                                        class="chkRealizadoEditar form-check-input">
+                                    <label class="form-check-label">Realizada</label>
+                                </div>
+                            </div>
+                            <!-- Botones de Guardar y Cancelar -->
+                            <div class="divBotonesEditar">
+                                <button ng-click="Save()" type="button" ng-disabled="noEditable"
+                                    class="buttonGuardar btn btn-success">Guardar</button>
+                                <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
+                                    class="btn btn-outline-secondary">Cancelar</button>
+                            </div>
+                        </form>
                     </div>
-                    <!-- Descripcion -->
-                    <div class="form-group">
-                        <label>Descripción</label>
-                        <input ng-model="valueDesc" ng-disabled="noEditable" type="text"
-                            class="inputDescripcion form-control" placeholder="Descripción de la tarea">
+                </div>
+
+                <!-- div de la tabla con la lista de tareas -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-md-10" id="divListaTareas">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Autor</th> <!-- Autor -->
+                                    <th scope="col">Descripcion</th> <!-- Descripcion de la tarea -->
+                                    <th id="thFecha" scope="col">Fecha</th> <!-- Fecha de comienzo -->
+                                    <th id="thEstado" scope="col">Estado</th> <!-- Estado de la tarea actual -->
+                                    <th scope="col"></th> <!-- (Columna de las Acciones de Editar y Borrar) -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Cargar la variable $scope.listaTareas con un forEach (ng-repeat) 
+                        ademas con ng-class definimos la clase que tendra cada tr para 
+                        definir su background-color en funcion de si el campo check(estado) 
+                        esta Realizado o no (con true or false)-->
+                                <tr ng-repeat="tarea in listaTareas"
+                                    ng-class="setColorRow($index, 'table-success', 'table-danger')">
+                                    <td>{{ tarea.autor }}</td>
+                                    <td>{{ tarea.desc }}</td>
+                                    <td class="tdFecha">{{ tarea.fecha }}</td>
+                                    <!-- Si el campo check esta en true, muestra "Realizada" y si no
+                            "Incompleta" -->
+                                    <td class="tdEstado" ng-if="tarea.check">Realizada</td>
+                                    <td class="tdEstado" ng-if="!tarea.check">Incompleta</td>
+                                    <td>
+                                        <!-- Botones de Editar y Borrar -->
+                                        <a ng-click="Editar($index)" href="" title="Editar tarea"><img
+                                                src="./img/edit2.png" width="30" /></a>
+                                        <a ng-click="Delete($index)" href="" title="Borrar tarea"><img
+                                                src="./img/delete2.png" width="30" /></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Boton de añadir tarea -->
+                        <button ng-disabled="apagarBoton" ng-click="Add()" type="button"
+                            class="buttonAdd btn btn-info">Añadir</button>
                     </div>
-                    <label ng-model="valLabelFecha">Fecha de la tarea</label>
-                    <div class="divFecha form-group">
-                        <!-- Fecha -->
-                        <input ng-model="valueFecha" ng-disabled="noEditable" type="date"
-                            class="inputFecha form-control" placeholder="dd/mm/aaaa">
-                        <div class="divChk">
-                            <!-- Realizado / Check -->
-                            <input ng-model="valueCheck" ng-disabled="noEditable" type="checkbox"
-                                class="chkRealizadoEditar form-check-input">
-                            <label class="form-check-label">Realizada</label>
-                        </div>
-                    </div>
-                    <!-- Botones de Guardar y Cancelar -->
-                    <div class="divBotonesEditar">
-                        <button ng-click="Save()" type="button" ng-disabled="noEditable"
-                            class="buttonGuardar btn btn-success">Guardar</button>
-                        <button ng-click="Cancelar()" type="button" ng-disabled="noEditable"
-                            class="btn btn-outline-secondary">Cancelar</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <!-- div de la tabla con la lista de tareas -->
-        <div class="col-lg-6" id="divListaTareas">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Autor</th> <!-- Autor -->
-                        <th scope="col">Descripcion</th> <!-- Descripcion de la tarea -->
-                        <th id="thFecha" scope="col">Fecha</th> <!-- Fecha de comienzo -->
-                        <th id="thEstado" scope="col">Estado</th> <!-- Estado de la tarea actual -->
-                        <th scope="col"></th> <!-- (Columna de las Acciones de Editar y Borrar) -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Cargar la variable $scope.listaTareas con un forEach (ng-repeat) 
-                    ademas con ng-class definimos la clase que tendra cada tr para 
-                    definir su background-color en funcion de si el campo check(estado) 
-                    esta Realizado o no (con true or false)-->
-                    <tr ng-repeat="tarea in listaTareas"
-                        ng-class="setColorRow($index, 'table-success', 'table-danger')">
-                        <td>{{ tarea.autor }}</td>
-                        <td>{{ tarea.desc }}</td>
-                        <td class="tdFecha">{{ tarea.fecha }}</td>
-                        <!-- Si el campo check esta en true, muestra "Realizada" y si no
-                        "Incompleta" -->
-                        <td class="tdEstado" ng-if="tarea.check">Realizada</td>
-                        <td class="tdEstado" ng-if="!tarea.check">Incompleta</td>
-                        <td>
-                            <!-- Botones de Editar y Borrar -->
-                            <a ng-click="Editar($index)" href="" title="Editar tarea"><img src="./img/edit2.png"
-                                    width="30" /></a>
-                            <a ng-click="Delete($index)" href="" title="Borrar tarea"><img src="./img/delete2.png"
-                                    width="30" /></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- Boton de añadir tarea -->
-            <button ng-disabled="apagarBoton" ng-click="Add()" type="button"
-                class="buttonAdd btn btn-info">Añadir</button>
         </div>
     </div>
 
