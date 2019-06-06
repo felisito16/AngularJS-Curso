@@ -14,7 +14,7 @@ app.controller('controller', ['$scope', '$timeout', function ($scope, $timeout) 
             $("#buttonLogin").css({ "padding": "" });
             $(".btn-success:focus").blur()
             $scope.estadoLoad = false
-        }, 2500);
+        }, 211111500);
 
     }
 

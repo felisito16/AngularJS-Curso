@@ -22,7 +22,7 @@
 
     <div ng-app="angular" ng-controller="controller" class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 border border-success py-2">
+            <div class="col-xs-12 col-sm-8 py-2">
                 <div>
                     <p class="mb-2 text-center">Usuario</p>
                     <input ng-disabled="estadoLoad" type="text" id="inputUser" class="form-control">
@@ -33,15 +33,15 @@
                     <button ng-click="onLoad()" type="button" class="btn btn-success" id="buttonLogin">
                         <img ng-if="estadoLoad == true" id="loadGif" src="./img/load2.gif" width="40px" alt="">
                         <span ng-if="estadoLoad == false">
-                            LOGIN
+                            INICIAR SESION
                         </span>
                     </button>
                 </div>
-                <div class="col-xs-12 mt-2 text-center" id="divButtons">
+                <!-- <div class="col-xs-12 mt-2 text-center" id="divButtons">
                     <button type="button" class="btn btn-outline-dark" id="buttonReset">
                         RESET
                     </button>
-                </div>
+                </div> -->
 
                 <div class="row">
                     <a style="text-decoration: none" href="">
